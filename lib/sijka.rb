@@ -1,8 +1,6 @@
-require "sijka/version"
-
 require 'terminfo'
 
-module Sijka
+class Sijka
   SLEEP_TIME = 0.02
 
   def initialize(file_name = "#{File.dirname(__FILE__)}/characters/base.txt")
@@ -18,6 +16,8 @@ module Sijka
     sleep(1.3)
     system 'clear'
   end
+
+  private
 
   def right_move
     @movement_range.times do

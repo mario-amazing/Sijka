@@ -4,3 +4,4 @@ source "https://rubygems.org"
 gemspec
 
 gem 'ruby-terminfo', '~> 0.1.1'
+gem 'pry', required: false
