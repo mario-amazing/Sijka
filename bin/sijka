@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'sijka'
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: sijka [-h] [-f sijkafile] [-l] [message]"
+  opts.on("-l", "List available sijka files") do |cowfile|
+    options['list'] = true
+  end
+  opts.on("-f SIJKAFILE", "Specify a sijka file") do |cowfile|
+    options['sijkafile'] = sijkafile
+  end
+end.parse!
+
+if options['list']
+  puts "Sijka files:"
+  puts 'base'
+  # puts Cowsay.character_classes.join(' ') 
+else
+  # if ARGV.any?
+  #   message = ARGV.join(' ')
+  # else
+  #   #retrieve any piped input, otherwise use the empty string.
+  #   message = STDIN.tty? ? '' : ARGF.read.chomp
+  # end
+  Sijka.new.smoke
+  # puts Cowsay.say(message, options['cowfile'])
+end
