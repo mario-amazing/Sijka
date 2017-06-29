@@ -5,3 +5,4 @@ gemspec
 
 gem 'ruby-terminfo', '~> 0.1.1'
 gem 'pry', required: false
+gem 'I18n'
