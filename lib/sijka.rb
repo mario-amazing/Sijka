@@ -1,5 +1,6 @@
 require_relative 'sijka/smoke'
 require_relative 'sijka/parser'
+require_relative 'sijka/translator'
 
 module Sijka
   class Sijka
