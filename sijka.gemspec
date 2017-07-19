@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.version       = Sijka::VERSION
   spec.add_dependency             'ruby-terminfo', '~> 0.1.1'
+  spec.add_dependency             'I18n', '~> 0.1.1'
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
 end
