@@ -3,15 +3,15 @@ require 'terminfo'
 module Sijka
   class Smoke
     SLEEP_TIME = 0.02
-    FILE_LIST = ['base'].freeze # TODO: added method when add other screens
+    FILE_LIST = ['sijka', 'dildo', 'dildo2'].freeze # TODO: added method when add other screens
 
     def initialize(name, file_name)
-      file_name = !file_name.to_s.empty? && FILE_LIST.include?(file_name) ? file_name : 'base'
+      file_name = !file_name.to_s.empty? && FILE_LIST.include?(file_name) ? file_name : 'sijka'
       file_path = "#{File.dirname(__FILE__)}/../characters/#{file_name.downcase}"
       @img = File.open(file_path) { |file| file.read.split("\n") }
-      @movement_range = TermInfo.screen_size[1] - @img.first.length
+      @movement_range = TermInfo.screen_size[1] - @img.max_by(&:length).length
 
-      message = Translator.new.smoken_with_locale
+      message = Translator.new.smoken_with_locale(file_name)
       @message_with_name = name.to_s.empty? ? "#{message}!" : "#{message}, #{name}!"
     end
 
