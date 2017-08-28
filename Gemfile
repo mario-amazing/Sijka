@@ -4,5 +4,9 @@ source "https://rubygems.org"
 gemspec
 
 gem 'ruby-terminfo', '~> 0.1.1'
-gem 'pry', required: false
-gem 'I18n'
+gem 'i18n', '~> 0.7.0'
+
+group :development, :test do
+  gem 'pry'
+  gem 'rspec'
+end
