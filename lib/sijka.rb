@@ -12,7 +12,7 @@ module Sijka
 
     def smoke
       if @options['list']
-        puts "Sijka files:", Smoke::FILE_LIST
+        puts 'Sijka files:', Smoke::FILE_LIST
       else
         Smoke.new(@message, @options['sijkafile']).smoke
       end

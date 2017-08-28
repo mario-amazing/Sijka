@@ -3,11 +3,11 @@ require 'terminfo'
 module Sijka
   class Smoke
     SLEEP_TIME = 0.02
-    FILE_LIST = [ 'base' ] #TODO added method when add other screens
+    FILE_LIST = ['base'].freeze # TODO: added method when add other screens
 
     def initialize(name, file_name)
-      file_name =  !file_name.to_s.empty? && FILE_LIST.include?(file_name) ? file_name : 'base'
-      file_path = "#{File.dirname(__FILE__)}/../characters/#{file_name.downcase}.txt"
+      file_name = !file_name.to_s.empty? && FILE_LIST.include?(file_name) ? file_name : 'base'
+      file_path = "#{File.dirname(__FILE__)}/../characters/#{file_name.downcase}"
       @img = File.open(file_path) { |file| file.read.split("\n") }
       @movement_range = TermInfo.screen_size[1] - @img.first.length
 

@@ -10,11 +10,11 @@ module Sijka
     def parse_flags
       options = {}
       OptionParser.new do |opts|
-        opts.banner = "Usage: sijka [name] [-h] [-f sijkafile] [-l]"
-        opts.on("-l", "List available sijka files") do |sijkafile|
+        opts.banner = 'Usage: sijka [name] [-h] [-f sijkafile] [-l]'
+        opts.on('-l', 'List available sijka files') do |_|
           options['list'] = true
         end
-        opts.on("-f SIJKAFILE", "Specify a sijka file") do |sijkafile|
+        opts.on('-f SIJKAFILE', 'Specify a sijka file') do |sijkafile|
           options['sijkafile'] = sijkafile
         end
       end.parse!
