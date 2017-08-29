@@ -2,9 +2,11 @@ require_relative 'sijka/smoke'
 require_relative 'sijka/parser'
 require_relative 'sijka/translator'
 
+$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)))
+
 module Sijka
   class Sijka
-    FILE_LIST = ['sijka', 'dildo', 'dildo2'].freeze
+    FILE_LIST = (Dir.entries("#{$LOAD_PATH.first}/characters") - %w[. ..]).freeze
 
     def initialize(argv, stdin)
       sijka_parser = SijkaParser.new(argv, stdin)
@@ -14,7 +16,7 @@ module Sijka
 
     def smoke
       if @options['list']
-        puts 'Sijka files:', Smoke::FILE_LIST
+        puts 'Sijka files:', "\n", FILE_LIST
       else
         Smoke.new(@message, @options['sijkafile']).smoke
       end

@@ -3,7 +3,7 @@ require 'I18n'
 module Sijka
   class Translator
     def initialize
-      I18n.load_path = Dir['locales/*.yml'] # TODO: require_relative
+      I18n.load_path = Dir.glob("#{$LOAD_PATH.first}/../locales/*.yml")
       I18n.enforce_available_locales = false
     end
 
