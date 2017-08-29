@@ -17,6 +17,9 @@ module Sijka
         opts.on('-f SIJKAFILE', 'Specify a sijka file') do |sijkafile|
           options['sijkafile'] = sijkafile
         end
+        opts.on('-r', 'Random file') do |_|
+          options['sijkafile'] = Sijka::FILE_LIST.sample
+        end
       end.parse!
       options
     end

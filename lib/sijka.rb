@@ -4,6 +4,8 @@ require_relative 'sijka/translator'
 
 module Sijka
   class Sijka
+    FILE_LIST = ['sijka', 'dildo', 'dildo2'].freeze
+
     def initialize(argv, stdin)
       sijka_parser = SijkaParser.new(argv, stdin)
       @options = sijka_parser.parse_flags
