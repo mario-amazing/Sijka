@@ -1,4 +1,4 @@
-require 'I18n'
+require 'i18n'
 
 module Sijka
   class Translator
