@@ -5,10 +5,8 @@ module Sijka
     SLEEP_TIME = 0.02
 
     def initialize(name, file_name)
-      file_name = !file_name.to_s.empty? && Sijka::FILE_LIST.include?(file_name) ? file_name : 'sijka'
-      file_path = "#{File.dirname(__FILE__)}/../characters/#{file_name.downcase}"
-      @img = File.open(file_path) { |file| file.read.split("\n") }
-      @movement_range = TermInfo.screen_size[1] - @img.max_by(&:length).length
+      set_standarted_img file_name
+      @movement_range = TermInfo.screen_size[1] - @img_length
 
       message = Translator.new.smoken_with_locale(file_name)
       @message_with_name = name.to_s.empty? ? "#{message}!" : "#{message}, #{name}!"
@@ -32,6 +30,15 @@ module Sijka
         sleep(SLEEP_TIME)
         @img.map! { |line| line.insert(0, ' ') }
       end
+    end
+
+    def set_standarted_img(file_name)
+      file_name = !file_name.to_s.empty? && Sijka::FILE_LIST.include?(file_name) ? file_name : 'sijka'
+      file_path = "#{$LOAD_PATH.first}/characters/#{file_name.downcase}"
+      @img = File.open(file_path) { |file| file.read.split("\n") }
+
+      @img_length = @img.max_by(&:length).length
+      @img.map { |line| line << ' ' * (@img_length - line.length) }
     end
 
     def reverse_img
