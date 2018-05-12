@@ -8,13 +8,13 @@ module Sijka
 
     attr_reader :img_file_name
 
-    def initialize(name, file_name)
+    def initialize(smoker_name, file_name)
       @img_file_name = validated_img_file_name(file_name)
       load_standarted_img
       @movement_range = TermInfo.screen_size[1] - @img_length
 
       message = Translator.new.smoken_with_locale(img_file_name)
-      @message_with_name = name.to_s.empty? ? "#{message}!" : "#{message}, #{name}!"
+      @message_with_name ||= smoker_name.to_s.empty? ? "#{message}!" : "#{message}, #{smoker_name}!"
     end
 
     def smoke

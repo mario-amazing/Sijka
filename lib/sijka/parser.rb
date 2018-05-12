@@ -2,9 +2,8 @@ require 'optparse'
 
 module Sijka
   class SijkaParser
-    def initialize(argv, stdin)
+    def initialize(argv)
       @argv = argv
-      @stdin = stdin
     end
 
     def parse_flags
@@ -25,11 +24,7 @@ module Sijka
     end
 
     def parse_message
-      if @argv.any?
-        @argv.join(' ')
-      else
-        @stdin.tty? ? '' : @argv.read.chomp
-      end
+      @argv.any? ? @argv.join(' ') : ''
     end
   end
 end

@@ -2,4 +2,4 @@
 
 require_relative '../lib/sijka'
 
-Sijka::Sijka.new(ARGV, STDIN).smoke
+Sijka::Sijka.new(ARGV).smoke
