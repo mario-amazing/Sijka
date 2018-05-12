@@ -1,0 +1,19 @@
+language: ruby
+
+rvm:
+  - 2.4.1
+
+cache: bundler
+
+bundler_args: --jobs=3 --retry=3
+
+script:
+  - bundle exec rubocop -P
+  - bundle exec parallel_rspec spec/
+
+notifications:
+  email: false
+
+addons:
+  apt:
+    update: true
