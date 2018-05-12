@@ -2,7 +2,7 @@ require_relative 'sijka/smoke'
 require_relative 'sijka/parser'
 require_relative 'sijka/translator'
 
-$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)))
+$LOAD_PATH.unshift(__dir__)
 
 module Sijka
   class Sijka
