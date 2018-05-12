@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.version       = Sijka::VERSION
   spec.add_runtime_dependency     'i18n', '>= 0.7.0'
   spec.add_runtime_dependency     'ruby-terminfo', '~> 0.1.1'
-  spec.add_development_dependency 'bundler', '~> 1.15'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler', '~> 1.16.1'
+  spec.add_development_dependency 'rake', '~> 10.5'
+  spec.add_development_dependency "rspec", "~> 3.7"
 end
