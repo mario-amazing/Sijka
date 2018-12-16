@@ -1,6 +1,7 @@
 require_relative 'sijka/smoke'
 require_relative 'sijka/parser'
 require_relative 'sijka/translator'
+require_relative 'sijka/curses_initializer'
 
 $LOAD_PATH.unshift(__dir__)
 
