@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'curses'
-gem 'i18n', '~> 0.7.0'
+gem 'i18n'
 
 group :development, :test do
   gem 'parallel_tests'
